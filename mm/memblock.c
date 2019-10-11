@@ -1399,7 +1399,11 @@ again:
 
 	return NULL;
 done:
+#ifdef CONFIG_L4
+	ptr = __va(alloc);
+#else
 	ptr = phys_to_virt(alloc);
+#endif
 
 	/*
 	 * The min_count is set to 0 so that bootmem allocated blocks

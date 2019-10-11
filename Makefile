@@ -2,7 +2,7 @@
 VERSION = 4
 PATCHLEVEL = 19
 SUBLEVEL = 0
-EXTRAVERSION =
+EXTRAVERSION = -l4
 NAME = "People's Front"
 
 # *DOCUMENTATION*
@@ -206,6 +206,8 @@ src		:= $(srctree)
 obj		:= $(objtree)
 
 VPATH		:= $(srctree)$(if $(KBUILD_EXTMOD),:$(KBUILD_EXTMOD))
+
+include $(srctree)/arch/l4/Makefile.early
 
 export srctree objtree VPATH
 

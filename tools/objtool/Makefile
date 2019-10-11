@@ -5,6 +5,12 @@ include ../scripts/Makefile.arch
 ifeq ($(ARCH),x86_64)
 ARCH := x86
 endif
+ifeq ($(ARCH),l4)
+CFLAGS += -DL4
+ifeq ($(L4X_SRCARCH),x86)
+ARCH := x86
+endif
+endif
 
 # always use the host compiler
 HOSTCC	?= gcc

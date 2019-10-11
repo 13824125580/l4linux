@@ -156,6 +156,9 @@ static int __dead_end_function(struct objtool_file *file, struct symbol *func,
 		"__stack_chk_fail",
 		"panic",
 		"do_exit",
+#ifdef L4
+		"_exit",
+#endif
 		"do_task_dead",
 		"__module_put_and_exit",
 		"complete_and_exit",

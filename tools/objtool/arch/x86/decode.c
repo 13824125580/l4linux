@@ -377,7 +377,11 @@ int arch_decode_instruction(struct elf *elf, struct section *sec,
 			   op2 == 0x35) {
 
 			/* sysenter, sysret */
+#ifdef L4
+			*type = INSN_OTHER;
+#else
 			*type = INSN_CONTEXT_SWITCH;
+#endif
 
 		} else if (op2 == 0x0b || op2 == 0xb9) {
 

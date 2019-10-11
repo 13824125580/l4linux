@@ -44,3 +44,7 @@ null_blk-$(CONFIG_BLK_DEV_ZONED) += null_blk_zoned.o
 
 skd-y		:= skd_main.o
 swim_mod-y	:= swim.o swim_asm.o
+
+obj-$(CONFIG_L4_BLK_DRV)	+= l4bd.o
+obj-$(CONFIG_L4_BLK_DS_DRV)	+= l4bdds.o
+obj-$(CONFIG_L4_SERVER_FDX)	+= l4fdx-srv.o

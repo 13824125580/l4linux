@@ -209,7 +209,11 @@ int __init swiotlb_init_with_tbl(char *tlb, unsigned long nslabs, int verbose)
 	bytes = nslabs << IO_TLB_SHIFT;
 
 	io_tlb_nslabs = nslabs;
+#ifdef CONFIG_L4
+	io_tlb_start = virt_to_phys(tlb);
+#else
 	io_tlb_start = __pa(tlb);
+#endif /* L4 */
 	io_tlb_end = io_tlb_start + bytes;
 
 	/*
